@@ -1,0 +1,49 @@
+Trabalhando com arquivos CSV
+
+- CSV - **C**omma **S**eparated **V**alues (valores separados por vírgula)
+- podemos utilizar o módulo CSV para trabalhar com esse tipo de arquivo
+    - retorna um objeto _csv.reader
+
+with open('dados.csv') as arquivo:
+    print(arquivo.read())
+josÃ©;30
+gabriel;25
+lucas;15
+ana;45
+maria;60
+victor;70
+
+import csv
+
+with open('dados.csv', 'r') as arquivo:
+    arquivo_csv = csv.reader(arquivo, delimiter=';')
+    for dado in arquivo_csv:
+        print(f'Nome: {dado[0]} - Idade: {dado[1]}')
+
+Nome: josÃ© - Idade: 30
+Nome: gabriel - Idade: 25
+Nome: lucas - Idade: 15
+Nome: ana - Idade: 45
+Nome: maria - Idade: 60
+Nome: victor - Idade: 70
+
+Trabalhando com arquivos JSON
+
+- JSON - **J**ava**S**cript **O**bject **N**otation
+- formato padrão para troca de mensagens entre sistemas web
+- muito utilizados em bancos de dados não relacionais
+- podemos utilizar o módulo JSON para trabalhar com esse tipo de arquivo
+    - retorna uma lista
+
+import json
+
+with open('dados.json', 'r') as arquivo:
+    arquivo_json = json.load(arquivo)
+    for dado in arquivo_json:
+        print(f"Nome: {dado['nome']} - Idade: {dado['idade']}")
+
+Nome: JosÃ© - Idade: 25
+Nome: Maria - Idade: 19
+Nome: Gabriel - Idade: 21
+Nome: Lucas - Idade: 16
+
